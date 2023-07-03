@@ -1,0 +1,130 @@
+'''A database is a structured collection of data that is organized, managed, and accessed electronically.
+ It is designed to store, retrieve, and manipulate large amounts of data efficiently.
+  Databases are used in various applications and systems to handle data storage and provide data management capabilities.
+
+SQL (Structured Query Language) and NoSQL (Not only SQL) are two different types of database management
+SQL databases: SQL databases are based on a structured schema and use SQL as the query language for managing 
+and manipulating data. They enforce a fixed schema, which defines the structure of tables, relationships, and constraints.
+ Examples of SQL databases include MySQL, PostgreSQL, Oracle, and Microsoft SQL Server.
+  SQL databases are generally better suited for structured data with well-defined relationships and complex transactions.
+
+NoSQL databases: NoSQL databases are designed to handle unstructured or semi-structured data and offer flexible schemas.
+ They provide a more scalable and distributed approach to data storage and retrieval.
+  NoSQL databases don't rely on SQL as the primary query language; instead, they often use alternative query mechanisms
+ like key-value pairs, document-based queries, or graph-based queries. Examples of NoSQL databases include MongoDB, 
+ Cassandra, Redis, and Neo4j. NoSQL databases are typically used for large-scale web applications, real-time analytics, 
+ and handling rapidly changing data.
+
+The choice between SQL and NoSQL databases depends on the specific requirements of the application, the nature of the data, scalability needs, and the development team's expertise.
+
+Q2. What is DDL? Explain why CREATE, DROP, ALTER, and TRUNCATE are used with an example.
+
+DDL stands for Data Definition Language, which is a set of SQL commands used to define and manage
+ the structure of database objects, such as tables, indexes, and constraints. DDL statements are used to create,
+  modify, and delete the database schema.
+
+CREATE: The CREATE statement is used to create new database objects, such as tables, views, indexes, or stored procedures.
+ For example, to create a table named "Customers" with columns for "id," "name," and "email," you would use 
+ the following SQL statement:
+
+sql
+Copy code
+CREATE TABLE Customers (
+    id INT PRIMARY KEY,
+    name VARCHAR(50),
+    email VARCHAR(100)
+);
+DROP: The DROP statement is used to remove existing database objects. It permanently deletes the object and
+ all associated data. For example, to drop the "Customers" table, you would use the following SQL statement:
+
+sql
+Copy code
+DROP TABLE Customers;
+ALTER: The ALTER statement is used to modify the structure of an existing database object. It allows you to 
+a modify, or delete columns, constraints, or indexes. For example, to add a new column named "phone" to the "Customers" 
+table, you would use the following SQL statement:
+
+sql
+Copy code
+ALTER TABLE Customers ADD COLUMN phone VARCHAR(20);
+TRUNCATE: The TRUNCATE statement is used to delete all data from a table while keeping its structure intact. It is a fast alternative to the DELETE statement when you want to remove all records from a table. For example, to truncate the "Customers" table, you would use the following SQL statement:
+
+sql
+Copy code
+TRUNCATE TABLE Customers;
+Q3. What is DML? Explain INSERT, UPDATE, and DELETE with an example.
+
+DML stands for Data Manipulation Language, which is a set of SQL commands used to manage the data within database objects,
+ primarily tables. DML statements allow you to insert, update, retrieve, and delete data from the database.
+
+
+ Q4. DQL stands for Data Query Language. It is a subset of SQL (Structured Query Language) used to retrieve data
+  from a database. DQL is primarily concerned with querying and retrieving information rather than modifying or 
+  manipulating it.
+
+One of the most commonly used DQL statements is the SELECT statement.
+ It is used to retrieve data from one or more tables in a database. The SELECT statement allows
+  you to specify the columns you want to retrieve, the table(s) you want to query, and any conditions or criteria 
+  that the retrieved data must meet.
+
+Here's an example of a SELECT statement:
+
+sql
+Copy code
+SELECT column1, column2, ...
+FROM table_name
+WHERE condition;
+Let's say we have a table called "employees" with the following columns: "employee_id,
+" "first_name," "last_name," and "salary." We want to retrieve the employee IDs and names of 
+all employees whose salary is greater than $50,000. The SQL query would look like this:
+
+sql
+Copy code
+SELECT employee_id, first_name, last_name
+FROM employees
+WHERE salary > 50000;
+The result of this query would be a result set that contains the employee IDs, first names, and last names of 
+all employees whose salary is greater than $50,000.
+
+ In database management systems, both primary keys and foreign keys are used to establish relationships between tables.
+ Here's an explanation of each:
+
+Primary Key:
+A primary key is a column or a set of columns in a table that uniquely identifies each row. It ensures the uniqueness 
+and integrity of the data within the table. The primary key constraint ensures that the values in the
+ primary key column(s) are unique and not null. Typically, a primary key is chosen from one or more columns
+  that have unique values associated with them.
+
+For example, let's consider a table called "students" with columns like "student_id," "name," and "email." 
+If we want to ensure that each student has a unique identifier, we can designate the "student_id" column as the primary key. This means that no two students can have the same "student_id" value, and the "student_id" column cannot contain null values.
+
+Foreign Key:
+A foreign key is a column or a set of columns in one table that refers to the primary key in another table. 
+It establishes a relationship between two tables based on the values of those columns. 
+The foreign key constraint ensures that the values in the foreign key column(s) correspond to existing v
+alues in the primary key column(s) of the referenced table or are null.
+
+Continuing with our "students" example, let's assume we have another table called "courses" with columns 
+like "course_id," "course_name," and "student_id." Here, the "student_id" column in the "courses"
+ table can be designated as a foreign key. It refers to the "student_id" column in the "students" table,
+  establishing a relationship between the two tables. This relationship allows us to associate 
+  each course with the student who is enrolled in it.
+
+  The order of execution of clauses in an SQL query may vary depending on the database management system (DBMS) being used.
+   However, the general order of execution for a typical SQL query is as follows:
+
+FROM: The FROM clause specifies the tables from which the data will be retrieved.
+ It identifies the data source for the query.
+
+JOIN: If there are any JOIN clauses in the query, they are typically executed after the FROM clause. 
+JOINs are used to combine rows from multiple tables based on related columns.
+
+WHERE: The WHERE clause is used to filter the rows returned by the query based on specified conditions.
+ It is executed after the FROM and JOIN clauses, but before the SELECT clause.
+
+GROUP BY: The GROUP BY clause is used to group rows based on specified columns. It is executed after the WHERE clause.
+
+HAVING: The HAVING clause is used to filter the grouped rows based on specified conditions. It is similar to the WHERE clause, but it operates on grouped data. The HAVING clause is executed after the GROUP BY clause.
+
+Foreign keys help maintain data integrity and enforce referential integrity constraints,
+ ensuring that the relationships between tables are valid and consistent.'''
